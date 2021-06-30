@@ -1,4 +1,7 @@
 
 
 myvenv/
+img/
+login/static/login
 .env
+*.jpg
