@@ -24,8 +24,9 @@
   <body  class="h-100">
 
 
+
     <!-- Cabecera -->
-    <header class="masthead" id=portini style="background-image: url('{% block background %}{% endblock %}')">
+    <header class="masthead" >
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
@@ -45,11 +46,35 @@
             <div class="col-sm-12 col-md-5 col-lg-5 pt-2 pl-5 pr-5 pb-5" id="auth-container">
 
                 
-                {% block container %}{% endblock%}
+                {% block container %}
+                
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Usuario</th>
+                      <th scope="col">País</th>
+                      <th scope="col">Estado</th>
+                    </tr>
+                  </thead>
+                  
+                  <tbody>
+                  {% for registro in registros %}
+                    <tr>
+                      <th scope="row">{{registro.id}}</th>
+                      <td>{{registro.user}}</td>
+                      <td>{{registro.pais}}</td>
+                      <td>{{registro.estado}}</td>
+                    </tr>
+                  {% endfor %}
+                  </tbody>
+                </table>
+                          
+                                {% endblock%}
 
-            </div>
-        </div>
-    </div>
+                            </div>
+                        </div>
+                    </div>
 
     {% if request.path != "/" %}<hr>{% endif %}
   
