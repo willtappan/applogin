@@ -9,12 +9,19 @@ from .models import *
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 
+#Models
+from django.contrib.auth.models import User
+
+from login.models import Registro
+
 # Forms
 
 
 @login_required
 def home(request):
-    return render(request, "login/home.html")
+    registros = Registro.objects.all()
+
+    return render(request, 'login/home.html', {'registros': registros})
 
 
 def login_view(request):
